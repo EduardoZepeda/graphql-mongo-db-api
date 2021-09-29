@@ -47,13 +47,26 @@ input StudentEditInput {
     email: String!
 }
 
+type DeleteStudentOut{
+    status: Boolean
+    entity: Student
+}
+type DeleteCourseOut{
+    status: Boolean
+    entity: Course
+}
+
 type Mutation {
     "Crea un curso"
     createCourse(input: CourseInput!): Course
+    "Crea un estudiante"
+    createStudent(input: StudentInput!): Student
     "Edita un curso"
     editCourse(_id: ID!, input: CourseEditInput): Course
     "Edita un estudiante"
     editStudent(_id: ID!, input: StudentEditInput): Student
-    "Crea un estudiante"
-    createStudent(input: StudentInput!): Student
+    "Elimina un curso"
+    deleteCourse(_id: ID!): DeleteCourseOut
+    "Elimina un estudiante"
+    deleteStudent(_id: ID!): DeleteStudentOut
 }
