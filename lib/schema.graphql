@@ -5,6 +5,7 @@ type Course {
     description: String!
     topic: String
     people: [Student]
+    level: Level
 }
 
 type Student {
@@ -29,6 +30,7 @@ input CourseInput {
     teacher: String
     description: String!
     topic: String
+    level: Level
 }
 
 input CourseEditInput {
@@ -36,6 +38,7 @@ input CourseEditInput {
     teacher: String
     description: String
     topic: String
+    level: Level
 }
 
 input StudentInput {
@@ -56,6 +59,12 @@ type DeleteCourseOut{
     status: Boolean
     entity: Course
 }
+
+enum Level{
+        principiante
+        medio
+        avanzado
+    }
 
 type Mutation {
     "Crea un curso"
