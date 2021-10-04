@@ -4,10 +4,10 @@ const path = require('path')
 const config = {
   target: 'node',
   mode: 'production',
-  entry: './index.js',
+  entry: './api/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'index.js'
   },
   module: {
     rules: [

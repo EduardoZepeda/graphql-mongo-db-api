@@ -1,12 +1,12 @@
 'use strict'
 
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
-import typeDefs from './src/schema.graphql'
+require('core-js/stable')
+require('regenerator-runtime/runtime')
+const { typeDefs } = require('../src/schema.js')
 const { makeExecutableSchema } = require('graphql-tools')
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql')
-const resolvers = require('./src/resolvers')
+const resolvers = require('../src/resolvers')
 const cors = require('cors')
 
 const app = express()
@@ -23,6 +23,4 @@ app.use('/api', graphqlHTTP({
   graphiql: isDev
 }))
 
-app.listen(port, () => {
-  console.log(`Escuchando en http://localhost:${port}`)
-})
+module.exports = app

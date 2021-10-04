@@ -1,3 +1,4 @@
+const typeDefs = `
 interface Person {
     _id: ID
     name: String!
@@ -105,4 +106,7 @@ type Mutation {
     "Agrega una persona a un curso"
     addPeople(courseID: ID!, personID: ID!): Course
 }
-
+`
+module.exports = {
+  typeDefs: typeDefs
+}
