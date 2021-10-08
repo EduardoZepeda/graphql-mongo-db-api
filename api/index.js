@@ -17,6 +17,12 @@ const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 app.use(cors())
 
+app.use('/api/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: resolvers,
+  graphiql: true
+}))
+
 app.use('/api', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,
